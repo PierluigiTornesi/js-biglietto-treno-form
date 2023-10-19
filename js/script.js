@@ -118,18 +118,41 @@ generaBtn.addEventListener("click", function() {
     const etaPass = anniUserElem.value;
     //debug
     console.log("etaPass", etaPass);
-
+    //variabile per il messaggio di errore
     let message = "";
     //creo una costante per il costo al km del biglietto
     const costoKm = 0.21;
     //credo una variabile per il costo del biglietto
     let costoBiglietto = 0;
+    //creo una variabile per il nome e il cognome del passeggero
     const nomeCognomeUser = document.getElementById("nomeCognome");
     const nomeCognome = nomeCognomeUser.value;
+    //debug nome e cognome
     console.log("nome e cognome", nomeCognome)
     //verifico se i km sono validi
     if(numKm >= 0){
 
+        //calcolo il costo del biglietto
+        costoBiglietto = numKm * costoKm ;
+        //debug costoBiglietto
+        console.log(costoBiglietto, typeof costoBiglietto, "costo biglietto senza sconto");
+        //verifico se posso applicare uno sconto
+        if(etaPass == "Over 65"){
+            //creo una costante per lo sconto se é over 65
+            const scontoOver = costoBiglietto * 0.40;
+            //debug sconto
+            console.log(scontoOver, typeof scontoOver , "totale sconto da applicare");
+            //applico lo sconto al costo del biglietto
+            costoBiglietto = costoBiglietto - scontoOver;
+            //debug costoBiglietto
+            console.log(costoBiglietto, typeof costoBiglietto, "prezzo del biglietto dopo aver applicato lo sconto");
+            //restituisco il nome e cognome nel biglietto
+            document.getElementById("nomeBiglietto").innerHTML = nomeCognome;
+            //restituisco l'offerta nel biglietto
+            document.getElementById("offertaBiglietto").innerHTML = "Offerta Over 65";
+            //restituisco il costo nel biglietto
+            document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+        }
     }else{
         message = `
             <h5> Il numero di km da lei inserito non risulta conforme, probabilmente ha sbagliato a digitare, la preghiamo di cliccare sul tasto annulla e di inserire nuovamente i dati, grazie.
@@ -145,14 +168,28 @@ generaBtn.addEventListener("click", function() {
 //bottone annulla per poter togliere i dati inseriti e ricominciare da capo
 const annullaBtn = document.getElementById("annulla");
 annullaBtn.addEventListener("click", function() {
+    //svuoto il contenuto del nome e cognome
     const nomeCognome = document.getElementById("nomeCognome");
     nomeCognome.value = "";
+    //svuoto il contenuto del numero dei km
     const numKm = document.getElementById("kmDaPercorrere");
     numKm.value = "";
+    //svuto il contenuto della fascia d'etá
     const fasciaEta = document.getElementById("fasciaEta");
     fasciaEta.value = "";
+    //svuoto il messaggio di errore
     const message = "";
     //restituisco il messaggio
-    document.getElementById("messageMil2").innerHTML = message;    
+    document.getElementById("messageMil2").innerHTML = message; 
+    //svuoto il costo del biglietto
+    const costoBiglietto = "";
+    document.getElementById("costoBiglietto").innerHTML = costoBiglietto; 
+    //svuoto l'offerta del biglietto
+    const offertaBiglietto = "";
+    document.getElementById("offertaBiglietto").innerHTML = offertaBiglietto; 
+    //svuoto il nome sul biglietto
+    const nomeBiglietto = "";
+    //restituisco il messaggio
+    document.getElementById("nomeBiglietto").innerHTML = nomeBiglietto; 
 })
 
