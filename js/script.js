@@ -152,8 +152,39 @@ generaBtn.addEventListener("click", function() {
             document.getElementById("offertaBiglietto").innerHTML = "Offerta Over 65";
             //restituisco il costo nel biglietto
             document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+        }else if(etaPass == "minorenne"){
+            //creo una costante per lo sconto se é minorenne
+            const scontoOver = costoBiglietto * 0.20;
+            //debug sconto
+            console.log(scontoOver, typeof scontoOver, "totale sconto da applicare");
+            //applico lo sconto al costo del biglietto
+            costoBiglietto = costoBiglietto - scontoOver;
+            //debug costoBiglietto
+            console.log(costoBiglietto, typeof costoBiglietto, "prezzo del biglietto dopo aver applicato lo sconto");
+            //restituisco il nome e cognome nel biglietto
+            document.getElementById("nomeBiglietto").innerHTML = nomeCognome;
+            //restituisco l'offerta nel biglietto
+            document.getElementById("offertaBiglietto").innerHTML = "Offerta Minorenne";
+            //restituisco il costo nel biglietto
+            document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+        }else if(etaPass == "maggiorenne"){
+            //non applico nessuno sconto e invio i dati
+            //restituisco il nome e cognome nel biglietto
+            document.getElementById("nomeBiglietto").innerHTML = nomeCognome;
+            //restituisco l'offerta nel biglietto
+            document.getElementById("offertaBiglietto").innerHTML = "Offerta Standard";
+            //restituisco il costo nel biglietto
+            document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+        }else if(etaPass == "nulla"){
+            //invio un messaggio di errore e chiedo di inserire la fascia d'etá
+            message = `
+                <h5> La fascia d'etá da lei inserita non risulta conforme, probabilmente ha sbagliato a digitare, la preghiamo di cliccare sul tasto annulla e di inserire nuovamente i dati, grazie.
+            `
+            //restituisco il messaggio
+            document.getElementById("messageMil2").innerHTML = message;
         }
     }else{
+        //invio un messaggio di errore e chiedo di riscrivere i km
         message = `
             <h5> Il numero di km da lei inserito non risulta conforme, probabilmente ha sbagliato a digitare, la preghiamo di cliccare sul tasto annulla e di inserire nuovamente i dati, grazie.
         `
