@@ -1,3 +1,4 @@
+//Milestone 1
 const sendBtn = document.getElementById("send");
 sendBtn.addEventListener("click", function() {
 
@@ -13,11 +14,11 @@ sendBtn.addEventListener("click", function() {
     //Variabile che conterrá il valore dell'input dei km
     const numKm = kmUserElem.value;
     //debug
-    console.log("kmUser", kmUser);
+    console.log("numKm", numKm);
     //Variabile che conterrá il valore dell'input dei km
     const etaPass = anniUserElem.value;
     //debug
-    console.log("anniUser", anniUser);
+    console.log("etaPass", etaPass);
 
     //Variabile che conterrá il messaggio del risultato finale
     let message = "";
@@ -93,3 +94,65 @@ sendBtn.addEventListener("click", function() {
     document.getElementById("message").innerHTML = message;
     
 });
+
+
+
+//Milestone2
+const generaBtn = document.getElementById("genera");
+generaBtn.addEventListener("click", function() {
+
+    //Variabile che conterrá il contenuto dell'input dei km
+    const kmUserElem = document.getElementById("kmDaPercorrere");
+    //debug
+    console.log("kmUserElem", kmUserElem);
+    //Variabile che conterrá il contenuto dell'input dell'etá
+    const anniUserElem = document.getElementById("fasciaEta");
+    //debug
+    console.log("anniUserElem", anniUserElem);
+
+    //Variabile che conterrá il valore dell'input dei km
+    const numKm = kmUserElem.value;
+    //debug
+    console.log("numKm", numKm);
+    //Variabile che conterrá il valore dell'input dei km
+    const etaPass = anniUserElem.value;
+    //debug
+    console.log("etaPass", etaPass);
+
+    let message = "";
+    //creo una costante per il costo al km del biglietto
+    const costoKm = 0.21;
+    //credo una variabile per il costo del biglietto
+    let costoBiglietto = 0;
+    const nomeCognomeUser = document.getElementById("nomeCognome");
+    const nomeCognome = nomeCognomeUser.value;
+    console.log("nome e cognome", nomeCognome)
+    //verifico se i km sono validi
+    if(numKm >= 0){
+
+    }else{
+        message = `
+            <h5> Il numero di km da lei inserito non risulta conforme, probabilmente ha sbagliato a digitare, la preghiamo di cliccare sul tasto annulla e di inserire nuovamente i dati, grazie.
+        `
+        //restituisco il messaggio
+        document.getElementById("messageMil2").innerHTML = message;
+    
+    }
+})
+
+
+
+//bottone annulla per poter togliere i dati inseriti e ricominciare da capo
+const annullaBtn = document.getElementById("annulla");
+annullaBtn.addEventListener("click", function() {
+    const nomeCognome = document.getElementById("nomeCognome");
+    nomeCognome.value = "";
+    const numKm = document.getElementById("kmDaPercorrere");
+    numKm.value = "";
+    const fasciaEta = document.getElementById("fasciaEta");
+    fasciaEta.value = "";
+    const message = "";
+    //restituisco il messaggio
+    document.getElementById("messageMil2").innerHTML = message;    
+})
+
