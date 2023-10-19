@@ -77,7 +77,7 @@ sendBtn.addEventListener("click", function() {
             //non applico nessuno sconto e invio il messaggio con il costo
             message = `
             <h2> Ciao passeggero </h2>
-            <p>Il prezzo del suo biglietto é di ${costoBiglietto} euro , a cui non é stato applicato nessuno sconto avendo lei ${etaPass} anni. </p>
+            <p>Il prezzo del suo biglietto é di ${costoBiglietto.toFixed(2)} euro , a cui non é stato applicato nessuno sconto avendo lei ${etaPass} anni. </p>
             <p>Gli sconti possibili sono del 20% per i minorenni e del 40% per gli over 65.</p>
             `
         }
