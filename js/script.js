@@ -152,6 +152,12 @@ generaBtn.addEventListener("click", function() {
             document.getElementById("offertaBiglietto").innerHTML = "Offerta Over 65";
             //restituisco il costo nel biglietto
             document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+            //restituisco un numero casuale di carrozza
+            const carrozza = Math.floor(Math.random() * 9) + 1;
+            document.getElementById("carrozza").innerHTML = carrozza; 
+            //restituisco un numero casuale di codice cp
+            const codiceCP = Math.floor(Math.random() * 90000) + 1;
+            document.getElementById("codiceCP").innerHTML = codiceCP; 
         }else if(etaPass == "minorenne"){
             //creo una costante per lo sconto se é minorenne
             const scontoOver = costoBiglietto * 0.20;
@@ -167,6 +173,12 @@ generaBtn.addEventListener("click", function() {
             document.getElementById("offertaBiglietto").innerHTML = "Offerta Minorenne";
             //restituisco il costo nel biglietto
             document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+            //restituisco un numero casuale di carrozza
+            const carrozza = Math.floor(Math.random() * 9) + 1;
+            document.getElementById("carrozza").innerHTML = carrozza; 
+            //restituisco un numero casuale di codice cp
+            const codiceCP = Math.floor(Math.random() * 90000) + 1;
+            document.getElementById("codiceCP").innerHTML = codiceCP; 
         }else if(etaPass == "maggiorenne"){
             //non applico nessuno sconto e invio i dati
             //restituisco il nome e cognome nel biglietto
@@ -175,6 +187,12 @@ generaBtn.addEventListener("click", function() {
             document.getElementById("offertaBiglietto").innerHTML = "Offerta Standard";
             //restituisco il costo nel biglietto
             document.getElementById("costoBiglietto").innerHTML = costoBiglietto.toFixed(2);
+            //restituisco un numero casuale di carrozza
+            const carrozza = Math.floor(Math.random() * 9) + 1;
+            document.getElementById("carrozza").innerHTML = carrozza; 
+            //restituisco un numero casuale di codice cp
+            const codiceCP = Math.floor(Math.random() * 90000) + 1;
+            document.getElementById("codiceCP").innerHTML = codiceCP; 
         }else if(etaPass == "nulla"){
             //invio un messaggio di errore e chiedo di inserire la fascia d'etá
             message = `
@@ -193,7 +211,6 @@ generaBtn.addEventListener("click", function() {
     
     }
 })
-
 
 
 //bottone annulla per poter togliere i dati inseriti e ricominciare da capo
@@ -222,5 +239,12 @@ annullaBtn.addEventListener("click", function() {
     const nomeBiglietto = "";
     //restituisco il messaggio
     document.getElementById("nomeBiglietto").innerHTML = nomeBiglietto; 
+    //svuoto il numero della carrozza sul biglietto
+    const carrozza = "";
+    //restituisco il messaggio
+    document.getElementById("carrozza").innerHTML = carrozza; 
+    //svuoto il codice cp sul biglietto
+    const codiceCP = "";
+    //restituisco il messaggio
+    document.getElementById("codiceCP").innerHTML = codiceCP; 
 })
-
